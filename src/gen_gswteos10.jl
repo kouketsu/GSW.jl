@@ -3,11 +3,11 @@
 
 
 function gsw_add_barrier(input_data, lon::Cdouble, lat::Cdouble, long_grid::Cdouble, lat_grid::Cdouble, dlong_grid::Cdouble, dlat_grid::Cdouble, output_data)
-    ccall((:gsw_add_barrier, libgswteos), Void, (Ptr{Cdouble}, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}), input_data, lon, lat, long_grid, lat_grid, dlong_grid, dlat_grid, output_data)
+    ccall((:gsw_add_barrier, libgswteos), Nothing, (Ptr{Cdouble}, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}), input_data, lon, lat, long_grid, lat_grid, dlong_grid, dlat_grid, output_data)
 end
 
 function gsw_add_mean(data_in, data_out)
-    ccall((:gsw_add_mean, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}), data_in, data_out)
+    ccall((:gsw_add_mean, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}), data_in, data_out)
 end
 
 function gsw_adiabatic_lapse_rate_from_ct(sa::Cdouble, ct::Cdouble, p::Cdouble)
@@ -67,11 +67,11 @@ function gsw_cp_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble)
 end
 
 function gsw_ct_first_derivatives(sa::Cdouble, pt::Cdouble, ct_sa, ct_pt)
-    ccall((:gsw_ct_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, pt, ct_sa, ct_pt)
+    ccall((:gsw_ct_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, pt, ct_sa, ct_pt)
 end
 
 function gsw_ct_first_derivatives_wrt_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble, ct_sa_wrt_t, ct_t_wrt_t, ct_p_wrt_t)
-    ccall((:gsw_ct_first_derivatives_wrt_t_exact, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, t, p, ct_sa_wrt_t, ct_t_wrt_t, ct_p_wrt_t)
+    ccall((:gsw_ct_first_derivatives_wrt_t_exact, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, t, p, ct_sa_wrt_t, ct_t_wrt_t, ct_p_wrt_t)
 end
 
 function gsw_ct_freezing(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble)
@@ -79,11 +79,11 @@ function gsw_ct_freezing(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble)
 end
 
 function gsw_ct_freezing_first_derivatives(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble, ctfreezing_sa, ctfreezing_p)
-    ccall((:gsw_ct_freezing_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, ctfreezing_sa, ctfreezing_p)
+    ccall((:gsw_ct_freezing_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, ctfreezing_sa, ctfreezing_p)
 end
 
 function gsw_ct_freezing_first_derivatives_poly(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble, ctfreezing_sa, ctfreezing_p)
-    ccall((:gsw_ct_freezing_first_derivatives_poly, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, ctfreezing_sa, ctfreezing_p)
+    ccall((:gsw_ct_freezing_first_derivatives_poly, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, ctfreezing_sa, ctfreezing_p)
 end
 
 function gsw_ct_freezing_poly(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble)
@@ -107,7 +107,7 @@ function gsw_ct_from_pt(sa::Cdouble, pt::Cdouble)
 end
 
 function gsw_ct_from_rho(rho::Cdouble, sa::Cdouble, p::Cdouble, ct, ct_multiple)
-    ccall((:gsw_ct_from_rho, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), rho, sa, p, ct, ct_multiple)
+    ccall((:gsw_ct_from_rho, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), rho, sa, p, ct, ct_multiple)
 end
 
 function gsw_ct_from_t(sa::Cdouble, t::Cdouble, p::Cdouble)
@@ -119,7 +119,7 @@ function gsw_ct_maxdensity(sa::Cdouble, p::Cdouble)
 end
 
 function gsw_ct_second_derivatives(sa::Cdouble, pt::Cdouble, ct_sa_sa, ct_sa_pt, ct_pt_pt)
-    ccall((:gsw_ct_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, pt, ct_sa_sa, ct_sa_pt, ct_pt_pt)
+    ccall((:gsw_ct_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, pt, ct_sa_sa, ct_sa_pt, ct_pt_pt)
 end
 
 function gsw_deltasa_atlas(p::Cdouble, lon::Cdouble, lat::Cdouble)
@@ -151,11 +151,11 @@ function gsw_enthalpy(sa::Cdouble, ct::Cdouble, p::Cdouble)
 end
 
 function gsw_enthalpy_first_derivatives_ct_exact(sa::Cdouble, ct::Cdouble, p::Cdouble, h_sa, h_ct)
-    ccall((:gsw_enthalpy_first_derivatives_ct_exact, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa, h_ct)
+    ccall((:gsw_enthalpy_first_derivatives_ct_exact, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa, h_ct)
 end
 
 function gsw_enthalpy_first_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, h_sa, h_ct)
-    ccall((:gsw_enthalpy_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa, h_ct)
+    ccall((:gsw_enthalpy_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa, h_ct)
 end
 
 function gsw_enthalpy_ice(t::Cdouble, p::Cdouble)
@@ -163,11 +163,11 @@ function gsw_enthalpy_ice(t::Cdouble, p::Cdouble)
 end
 
 function gsw_enthalpy_second_derivatives_ct_exact(sa::Cdouble, ct::Cdouble, p::Cdouble, h_sa_sa, h_sa_ct, h_ct_ct)
-    ccall((:gsw_enthalpy_second_derivatives_ct_exact, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa_sa, h_sa_ct, h_ct_ct)
+    ccall((:gsw_enthalpy_second_derivatives_ct_exact, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa_sa, h_sa_ct, h_ct_ct)
 end
 
 function gsw_enthalpy_second_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, h_sa_sa, h_sa_ct, h_ct_ct)
-    ccall((:gsw_enthalpy_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa_sa, h_sa_ct, h_ct_ct)
+    ccall((:gsw_enthalpy_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, h_sa_sa, h_sa_ct, h_ct_ct)
 end
 
 function gsw_enthalpy_sso_0(p::Cdouble)
@@ -179,7 +179,7 @@ function gsw_enthalpy_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble)
 end
 
 function gsw_entropy_first_derivatives(sa::Cdouble, ct::Cdouble, eta_sa, eta_ct)
-    ccall((:gsw_entropy_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, eta_sa, eta_ct)
+    ccall((:gsw_entropy_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, eta_sa, eta_ct)
 end
 
 function gsw_entropy_from_ct(sa::Cdouble, ct::Cdouble)
@@ -207,7 +207,7 @@ function gsw_entropy_part_zerop(sa::Cdouble, pt0::Cdouble)
 end
 
 function gsw_entropy_second_derivatives(sa::Cdouble, ct::Cdouble, eta_sa_sa, eta_sa_ct, eta_ct_ct)
-    ccall((:gsw_entropy_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, eta_sa_sa, eta_sa_ct, eta_ct_ct)
+    ccall((:gsw_entropy_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, eta_sa_sa, eta_sa_ct, eta_ct_ct)
 end
 
 function gsw_fdelta(p::Cdouble, lon::Cdouble, lat::Cdouble)
@@ -215,23 +215,23 @@ function gsw_fdelta(p::Cdouble, lon::Cdouble, lat::Cdouble)
 end
 
 function gsw_frazil_properties(sa_bulk::Cdouble, h_bulk::Cdouble, p::Cdouble, sa_final, ct_final, w_ih_final)
-    ccall((:gsw_frazil_properties, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_bulk, p, sa_final, ct_final, w_ih_final)
+    ccall((:gsw_frazil_properties, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_bulk, p, sa_final, ct_final, w_ih_final)
 end
 
 function gsw_frazil_properties_potential(sa_bulk::Cdouble, h_pot_bulk::Cdouble, p::Cdouble, sa_final, ct_final, w_ih_final)
-    ccall((:gsw_frazil_properties_potential, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_pot_bulk, p, sa_final, ct_final, w_ih_final)
+    ccall((:gsw_frazil_properties_potential, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_pot_bulk, p, sa_final, ct_final, w_ih_final)
 end
 
 function gsw_frazil_properties_potential_poly(sa_bulk::Cdouble, h_pot_bulk::Cdouble, p::Cdouble, sa_final, ct_final, w_ih_final)
-    ccall((:gsw_frazil_properties_potential_poly, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_pot_bulk, p, sa_final, ct_final, w_ih_final)
+    ccall((:gsw_frazil_properties_potential_poly, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa_bulk, h_pot_bulk, p, sa_final, ct_final, w_ih_final)
 end
 
 function gsw_frazil_ratios_adiabatic(sa::Cdouble, p::Cdouble, w_ih::Cdouble, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
-    ccall((:gsw_frazil_ratios_adiabatic, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, w_ih, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
+    ccall((:gsw_frazil_ratios_adiabatic, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, w_ih, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
 end
 
 function gsw_frazil_ratios_adiabatic_poly(sa::Cdouble, p::Cdouble, w_ih::Cdouble, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
-    ccall((:gsw_frazil_ratios_adiabatic_poly, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, w_ih, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
+    ccall((:gsw_frazil_ratios_adiabatic_poly, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, w_ih, dsa_dct_frazil, dsa_dp_frazil, dct_dp_frazil)
 end
 
 function gsw_geo_strf_dyn_height(sa, ct, p, p_ref::Cdouble, n_levels::Cint, dyn_height)
@@ -283,7 +283,7 @@ function gsw_hill_ratio_at_sp2(t::Cdouble)
 end
 
 function gsw_ice_fraction_to_freeze_seawater(sa::Cdouble, ct::Cdouble, p::Cdouble, t_ih::Cdouble, sa_freeze, ct_freeze, w_ih)
-    ccall((:gsw_ice_fraction_to_freeze_seawater, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, t_ih, sa_freeze, ct_freeze, w_ih)
+    ccall((:gsw_ice_fraction_to_freeze_seawater, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, t_ih, sa_freeze, ct_freeze, w_ih)
 end
 
 function gsw_internal_energy(sa::Cdouble, ct::Cdouble, p::Cdouble)
@@ -295,7 +295,7 @@ function gsw_internal_energy_ice(t::Cdouble, p::Cdouble)
 end
 
 function gsw_ipv_vs_fnsquared_ratio(sa, ct, p, p_ref::Cdouble, nz::Cint, ipv_vs_fnsquared_ratio, p_mid)
-    ccall((:gsw_ipv_vs_fnsquared_ratio, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cdouble, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, p_ref, nz, ipv_vs_fnsquared_ratio, p_mid)
+    ccall((:gsw_ipv_vs_fnsquared_ratio, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cdouble, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, p_ref, nz, ipv_vs_fnsquared_ratio, p_mid)
 end
 
 function gsw_kappa_const_t_ice(t::Cdouble, p::Cdouble)
@@ -327,7 +327,7 @@ function gsw_latentheat_melting(sa::Cdouble, p::Cdouble)
 end
 
 function gsw_linear_interp_sa_ct(sa, ct, p, np::Cint, p_i, npi::Cint, sa_i, ct_i)
-    ccall((:gsw_linear_interp_sa_ct, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, np, p_i, npi, sa_i, ct_i)
+    ccall((:gsw_linear_interp_sa_ct, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, np, p_i, npi, sa_i, ct_i)
 end
 
 function gsw_melting_ice_equilibrium_sa_ct_ratio(sa::Cdouble, p::Cdouble)
@@ -339,7 +339,7 @@ function gsw_melting_ice_equilibrium_sa_ct_ratio_poly(sa::Cdouble, p::Cdouble)
 end
 
 function gsw_melting_ice_into_seawater(sa::Cdouble, ct::Cdouble, p::Cdouble, w_ih::Cdouble, t_ih::Cdouble, sa_final, ct_final, w_ih_final)
-    ccall((:gsw_melting_ice_into_seawater, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, w_ih, t_ih, sa_final, ct_final, w_ih_final)
+    ccall((:gsw_melting_ice_into_seawater, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, w_ih, t_ih, sa_final, ct_final, w_ih_final)
 end
 
 function gsw_melting_ice_sa_ct_ratio(sa::Cdouble, ct::Cdouble, p::Cdouble, t_ih::Cdouble)
@@ -359,7 +359,7 @@ function gsw_melting_seaice_equilibrium_sa_ct_ratio_poly(sa::Cdouble, p::Cdouble
 end
 
 function gsw_melting_seaice_into_seawater(sa::Cdouble, ct::Cdouble, p::Cdouble, w_seaice::Cdouble, sa_seaice::Cdouble, t_seaice::Cdouble, sa_final, ct_final)
-    ccall((:gsw_melting_seaice_into_seawater, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, w_seaice, sa_seaice, t_seaice, sa_final, ct_final)
+    ccall((:gsw_melting_seaice_into_seawater, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, w_seaice, sa_seaice, t_seaice, sa_final, ct_final)
 end
 
 function gsw_melting_seaice_sa_ct_ratio(sa::Cdouble, ct::Cdouble, p::Cdouble, sa_seaice::Cdouble, t_seaice::Cdouble)
@@ -371,7 +371,7 @@ function gsw_melting_seaice_sa_ct_ratio_poly(sa::Cdouble, ct::Cdouble, p::Cdoubl
 end
 
 function gsw_nsquared(sa, ct, p, lat, nz::Cint, n2, p_mid)
-    ccall((:gsw_nsquared, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, lat, nz, n2, p_mid)
+    ccall((:gsw_nsquared, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, lat, nz, n2, p_mid)
 end
 
 function gsw_o2sol(sa::Cdouble, ct::Cdouble, p::Cdouble, lon::Cdouble, lat::Cdouble)
@@ -395,11 +395,11 @@ function gsw_pot_enthalpy_ice_freezing(sa::Cdouble, p::Cdouble)
 end
 
 function gsw_pot_enthalpy_ice_freezing_first_derivatives(sa::Cdouble, p::Cdouble, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
-    ccall((:gsw_pot_enthalpy_ice_freezing_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
+    ccall((:gsw_pot_enthalpy_ice_freezing_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
 end
 
 function gsw_pot_enthalpy_ice_freezing_first_derivatives_poly(sa::Cdouble, p::Cdouble, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
-    ccall((:gsw_pot_enthalpy_ice_freezing_first_derivatives_poly, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
+    ccall((:gsw_pot_enthalpy_ice_freezing_first_derivatives_poly, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, pot_enthalpy_ice_freezing_sa, pot_enthalpy_ice_freezing_p)
 end
 
 function gsw_pot_enthalpy_ice_freezing_poly(sa::Cdouble, p::Cdouble)
@@ -431,7 +431,7 @@ function gsw_pt0_from_t_ice(t::Cdouble, p::Cdouble)
 end
 
 function gsw_pt_first_derivatives(sa::Cdouble, ct::Cdouble, pt_sa, pt_ct)
-    ccall((:gsw_pt_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, pt_sa, pt_ct)
+    ccall((:gsw_pt_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, pt_sa, pt_ct)
 end
 
 function gsw_pt_from_ct(sa::Cdouble, ct::Cdouble)
@@ -463,11 +463,11 @@ function gsw_pt_from_t_ice(t::Cdouble, p::Cdouble, p_ref::Cdouble)
 end
 
 function gsw_pt_second_derivatives(sa::Cdouble, ct::Cdouble, pt_sa_sa, pt_sa_ct, pt_ct_ct)
-    ccall((:gsw_pt_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, pt_sa_sa, pt_sa_ct, pt_ct_ct)
+    ccall((:gsw_pt_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, pt_sa_sa, pt_sa_ct, pt_ct_ct)
 end
 
 function gsw_rho_alpha_beta(sa::Cdouble, ct::Cdouble, p::Cdouble, rho, alpha, beta)
-    ccall((:gsw_rho_alpha_beta, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho, alpha, beta)
+    ccall((:gsw_rho_alpha_beta, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho, alpha, beta)
 end
 
 function gsw_rho(sa::Cdouble, ct::Cdouble, p::Cdouble)
@@ -475,11 +475,11 @@ function gsw_rho(sa::Cdouble, ct::Cdouble, p::Cdouble)
 end
 
 function gsw_rho_first_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, drho_dsa, drho_dct, drho_dp)
-    ccall((:gsw_rho_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, drho_dsa, drho_dct, drho_dp)
+    ccall((:gsw_rho_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, drho_dsa, drho_dct, drho_dp)
 end
 
 function gsw_rho_first_derivatives_wrt_enthalpy(sa::Cdouble, ct::Cdouble, p::Cdouble, rho_sa, rho_h)
-    ccall((:gsw_rho_first_derivatives_wrt_enthalpy, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa, rho_h)
+    ccall((:gsw_rho_first_derivatives_wrt_enthalpy, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa, rho_h)
 end
 
 function gsw_rho_ice(t::Cdouble, p::Cdouble)
@@ -487,11 +487,11 @@ function gsw_rho_ice(t::Cdouble, p::Cdouble)
 end
 
 function gsw_rho_second_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, rho_sa_sa, rho_sa_ct, rho_ct_ct, rho_sa_p, rho_ct_p)
-    ccall((:gsw_rho_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa_sa, rho_sa_ct, rho_ct_ct, rho_sa_p, rho_ct_p)
+    ccall((:gsw_rho_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa_sa, rho_sa_ct, rho_ct_ct, rho_sa_p, rho_ct_p)
 end
 
 function gsw_rho_second_derivatives_wrt_enthalpy(sa::Cdouble, ct::Cdouble, p::Cdouble, rho_sa_sa, rho_sa_h, rho_h_h)
-    ccall((:gsw_rho_second_derivatives_wrt_enthalpy, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa_sa, rho_sa_h, rho_h_h)
+    ccall((:gsw_rho_second_derivatives_wrt_enthalpy, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, rho_sa_sa, rho_sa_h, rho_h_h)
 end
 
 function gsw_rho_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble)
@@ -499,7 +499,7 @@ function gsw_rho_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble)
 end
 
 function gsw_rr68_interp_sa_ct(sa, ct, p, mp::Cint, p_i, mp_i::Cint, sa_i, ct_i)
-    ccall((:gsw_rr68_interp_sa_ct, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, mp, p_i, mp_i, sa_i, ct_i)
+    ccall((:gsw_rr68_interp_sa_ct, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, mp, p_i, mp_i, sa_i, ct_i)
 end
 
 function gsw_saar(p::Cdouble, lon::Cdouble, lat::Cdouble)
@@ -547,7 +547,7 @@ function gsw_sa_p_inrange(sa::Cdouble, p::Cdouble)
 end
 
 function gsw_seaice_fraction_to_freeze_seawater(sa::Cdouble, ct::Cdouble, p::Cdouble, sa_seaice::Cdouble, t_seaice::Cdouble, sa_freeze, ct_freeze, w_seaice)
-    ccall((:gsw_seaice_fraction_to_freeze_seawater, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, sa_seaice, t_seaice, sa_freeze, ct_freeze, w_seaice)
+    ccall((:gsw_seaice_fraction_to_freeze_seawater, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, sa_seaice, t_seaice, sa_freeze, ct_freeze, w_seaice)
 end
 
 function gsw_sigma0(sa::Cdouble, ct::Cdouble)
@@ -583,7 +583,7 @@ function gsw_sound_speed_t_exact(sa::Cdouble, t::Cdouble, p::Cdouble)
 end
 
 function gsw_specvol_alpha_beta(sa::Cdouble, ct::Cdouble, p::Cdouble, specvol, alpha, beta)
-    ccall((:gsw_specvol_alpha_beta, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, specvol, alpha, beta)
+    ccall((:gsw_specvol_alpha_beta, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, specvol, alpha, beta)
 end
 
 function gsw_specvol_anom_standard(sa::Cdouble, ct::Cdouble, p::Cdouble)
@@ -595,11 +595,11 @@ function gsw_specvol(sa::Cdouble, ct::Cdouble, p::Cdouble)
 end
 
 function gsw_specvol_first_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, v_sa, v_ct, v_p)
-    ccall((:gsw_specvol_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa, v_ct, v_p)
+    ccall((:gsw_specvol_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa, v_ct, v_p)
 end
 
 function gsw_specvol_first_derivatives_wrt_enthalpy(sa::Cdouble, ct::Cdouble, p::Cdouble, v_sa, v_h)
-    ccall((:gsw_specvol_first_derivatives_wrt_enthalpy, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa, v_h)
+    ccall((:gsw_specvol_first_derivatives_wrt_enthalpy, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa, v_h)
 end
 
 function gsw_specvol_ice(t::Cdouble, p::Cdouble)
@@ -607,11 +607,11 @@ function gsw_specvol_ice(t::Cdouble, p::Cdouble)
 end
 
 function gsw_specvol_second_derivatives(sa::Cdouble, ct::Cdouble, p::Cdouble, v_sa_sa, v_sa_ct, v_ct_ct, v_sa_p, v_ct_p)
-    ccall((:gsw_specvol_second_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa_sa, v_sa_ct, v_ct_ct, v_sa_p, v_ct_p)
+    ccall((:gsw_specvol_second_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa_sa, v_sa_ct, v_ct_ct, v_sa_p, v_ct_p)
 end
 
 function gsw_specvol_second_derivatives_wrt_enthalpy(sa::Cdouble, ct::Cdouble, p::Cdouble, v_sa_sa, v_sa_h, v_h_h)
-    ccall((:gsw_specvol_second_derivatives_wrt_enthalpy, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa_sa, v_sa_h, v_h_h)
+    ccall((:gsw_specvol_second_derivatives_wrt_enthalpy, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, v_sa_sa, v_sa_h, v_h_h)
 end
 
 function gsw_specvol_sso_0(p::Cdouble)
@@ -679,11 +679,11 @@ function gsw_t_freezing(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble)
 end
 
 function gsw_t_freezing_first_derivatives_poly(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble, tfreezing_sa, tfreezing_p)
-    ccall((:gsw_t_freezing_first_derivatives_poly, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, tfreezing_sa, tfreezing_p)
+    ccall((:gsw_t_freezing_first_derivatives_poly, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, tfreezing_sa, tfreezing_p)
 end
 
 function gsw_t_freezing_first_derivatives(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble, tfreezing_sa, tfreezing_p)
-    ccall((:gsw_t_freezing_first_derivatives, libgswteos), Void, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, tfreezing_sa, tfreezing_p)
+    ccall((:gsw_t_freezing_first_derivatives, libgswteos), Nothing, (Cdouble, Cdouble, Cdouble, Ptr{Cdouble}, Ptr{Cdouble}), sa, p, saturation_fraction, tfreezing_sa, tfreezing_p)
 end
 
 function gsw_t_freezing_poly(sa::Cdouble, p::Cdouble, saturation_fraction::Cdouble)
@@ -703,7 +703,7 @@ function gsw_thermobaric(sa::Cdouble, ct::Cdouble, p::Cdouble)
 end
 
 function gsw_turner_rsubrho(sa, ct, p, nz::Cint, tu, rsubrho, p_mid)
-    ccall((:gsw_turner_rsubrho, libgswteos), Void, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, nz, tu, rsubrho, p_mid)
+    ccall((:gsw_turner_rsubrho, libgswteos), Nothing, (Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Ptr{Cdouble}, Ptr{Cdouble}), sa, ct, p, nz, tu, rsubrho, p_mid)
 end
 
 function gsw_util_indx(x, n::Cint, z::Cdouble)
@@ -719,7 +719,7 @@ function gsw_util_linear_interp(nx::Cint, x, ny::Cint, y, nxi::Cint, x_i, y_i)
 end
 
 function gsw_util_sort_real(rarray, nx::Cint, iarray)
-    ccall((:gsw_util_sort_real, libgswteos), Void, (Ptr{Cdouble}, Cint, Ptr{Cint}), rarray, nx, iarray)
+    ccall((:gsw_util_sort_real, libgswteos), Nothing, (Ptr{Cdouble}, Cint, Ptr{Cint}), rarray, nx, iarray)
 end
 
 function gsw_util_xinterp1(x, y, n::Cint, x0::Cdouble)

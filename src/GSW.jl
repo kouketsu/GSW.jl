@@ -2,9 +2,8 @@ __precompile__()
 
 module GSW
 
-
-deps = joinpath(Pkg.dir("GSW"), "deps", "deps.jl")
-isfile(deps) ? include(deps) : error("GSW is not properly installed")
+# deps = joinpath(dirname(pathof(GSW)), "deps", "deps.jl")
+# isfile(deps) ? include(deps) : error("GSW is not properly installed")
 
 include("gen_gswteos_h.jl")
 include("gen_gswteos10.jl")
