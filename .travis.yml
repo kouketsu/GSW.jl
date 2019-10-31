@@ -3,7 +3,7 @@ language: julia
 os:
   - linux
   - osx
-    osx_image: xcode8..0
+    osx_image: xcode8.0
 julia:
   - 1.2
   - nightly
