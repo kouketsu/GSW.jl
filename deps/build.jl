@@ -1,5 +1,5 @@
 using BinDeps
-using Libdl
+using Compat.Libdl
 C_URL    = "https://github.com/TEOS-10/GSW-C/archive/master.zip"
 SLibName = "libgswteos-10.so.GSW."
 LibName  = "libgswteos-10.$(Libdl.dlext)"
