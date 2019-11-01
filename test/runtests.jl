@@ -3,6 +3,8 @@ using GSW
     using Base.Test
 else
     using Test
+    as = 35.0; ct = 10.0; pr = 10.0
+    println(GSW.gsw_rho(as, ct, pr))
 end
 
 # write your own tests here
