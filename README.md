@@ -5,8 +5,7 @@ GSW.jl is a Julia wrapper for [GSW-C#d392e91](https://github.com/TEOS-10/GSW-C/t
 ## Installation
 
 ```julia
-Pkg.clone("https://github.com/kouketsu/GSW.jl")
-Pkg.build("GSW")
+pkg> add https://github.com/kouketsu/GSW.jl
 ```
 
 ## About TEOS-10
