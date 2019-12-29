@@ -1,7 +1,7 @@
 name = "GSW"
 uuid = "12ff6b1a-c77d-4ab1-8ac7-f92b2e1b4daa"
 authors = ["Shinya Kouketsu <shinya.kouketsu@gmail.com>"]
-version = "1.0.0"
+version = "1.1.0"
 
 [deps]
 BinaryProvider = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
